@@ -1,0 +1,18 @@
+
+1. What additional architectural change can be made to reduce the internet-facing attack surface of the web application instance.
+Move the App Web Service to an instance on the private subnet.
+
+
+2. Assuming the IAM permissions for the S3 bucket are still insecure, would creating VPC private endpoints for S3 prevent the unauthorized access to the secrets bucket.
+
+VPC private endpoints make s3 buckets accessible by applications that are on-prem over VPN and AWS Direct Connect or are in a different AWS region over VPC peering. So no, the bucket is not made more secure by creating VPC private endpoints. 
+
+
+3. Will applying default encryption setting to the s3 buckets encrypt the data that already exists?
+
+No. Enabling bucket encryption will not encrypt objects that are already in it.
+
+
+4. The changes you made above were done through the console or CLI; describe the outcome if the original cloud formation templates are applied to this environment?
+
+Making changes in the console or cli to infrastructure created by Cloud Formation is called 'drift' and it's a problem. Cloud Formation has a tool to detect drift. If there is drift, the original cloud formation templates will fail to run.

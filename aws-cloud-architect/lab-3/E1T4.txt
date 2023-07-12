@@ -1,0 +1,7 @@
+Based on the architecture diagram, and the steps you have taken so far to upload data and access the application web service, identify at least 2 obvious poor practices as it relates to security.  Include justification.
+
+# Poor practice 1
+The web server instance is in a public subnet. Having an app server exposed to the Internet leaves it vulterable to attack. If the app server was moved to a private subnet with a security group limiting the access to only the app load balancer, it would be more secure.
+
+# Poor practice 2
+The 'Free Recipes' S3 bucket is not server-side encrypted also public access is not blocked. This leaves the bucket and it's contents vulnarable to attack. Enable server-side encryption. Also, turn off public access and limit access to the web server instance with a bucket policy.

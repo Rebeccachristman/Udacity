@@ -1,0 +1,16 @@
+
+
+1. What findings were detected related to the brute force attack?
+If Guard Duty had worked properly, I would have seen "UnauthorizedAccess:EC2/SSHBruteForce" indicating an EC2 instance has been involved in SSH brute force attack.
+
+
+
+2. Take a screenshot of the Guard Duty findings specific to the attack. Title this screenshot E3T1_guardduty.png.
+
+Guard Duty never updated to show the brute force attack. I checked the Udaciy Mentor help and found this article (https://knowledge.udacity.com/questions/838057) saying this is a known problem with Guard Duty.
+The mentor’s suggestion is to make note of the problem and submit the assignment.
+
+
+3. Research the AWS Guard Duty documentation page and explain how GuardDuty may have detected this attack - i.e. what was its source of information?
+Guard Duty detects a brute force attack using the VPC Flow Logs. Guard Duty doesn't require that you have enabled VPC Flow logging although you can and should!
+Guard Duty uses logs that are kept behind the scenes by Amazon.
