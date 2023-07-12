@@ -1,0 +1,18 @@
+Availability Estimate
+
+Describe the achievable Recovery Time Objective (RTO) and Recovery Point Objective (RPO) for this Multi-AZ, multi-region database in terms of:
+- RTO (recovery time objective) is the maximum acceptable delay between the interruption of service and the restoration of service. 
+- RPO (recovery point objective) is the maximum acceptable amount of time since the last data recovery point.
+
+
+The primary RDS database in this lab is high availability (HA) with failover support using a multi-AZ deployment with one standby instance. In a multi-AZ deployment, the primary RDS instance is synchronously replicated to the standby across availability zones. If the primary fails, the standby instance takes over in typically under 35 seconds with zero data loss and no manual intervention.
+
+This lab has a cross-region read-replica RDS instance in a different region than the primary RDS instance.  The read-replica is read-only for uses such as BI and reporting. The purpose of the read-replica is to take read-only load off the primary server to improve performance thereby providing scalability. The read-replica is deployed Multi-AZ for quick failover in the event the primary read-replica became unavailable. In the event the region of the primary RDS becomes unavailable, the read-replica can be promoted to a standalone instance. The promotion takes several minutes.
+
+The minimum RTO for a single AZ outage is typically 35 seconds for a multi-AZ instance to failover. The minimum RTO for a single region outage will take several minutes to promote the read-replica.
+
+RPO applies to situations where data is lost. Typically, RPO is the interval between backups so it depends on the frequency of your backup strategy which is not addressed in this lab. A single AZ outage results in zero data loss, since the standby is synchronously replicated. No recovery from backup is necessary, so the RPO is zero. For a single region outage, again the data is replicated cross region a region outage would not require recovery from backup. Again, the RPO is zero.
+
+
+
+
