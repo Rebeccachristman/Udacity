@@ -1,2 +1,2 @@
-# Udacity
-Lab submissions for Udacity AWS Cloud Architecture nanodegree
+# my-Udacity-courses
+Lab submissions for Udacity nanodegree
