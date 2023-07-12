@@ -1,0 +1,50 @@
+
+Identify tools that will allow you to do the following and for each tool - identify an example compliance violation or vulnerability which it might expose.
+
+a. Scan infrastructure as code templates. 
+Since our project uses Cloud Formation for IaC, some choices of tools for scanning the CF templates are Cfripper, Cloudsploit and can-lint.
+Examples of violations and vulnerabilities caught by these tools are:
+- servers exposed publicly to the internet
+- unencrypted data storage
+- lack of least-privilege policies
+- poor password policies or missing MFA
+- misconfigured backup and restore settings
+- data exposure and privilege escalation
+
+
+b. Scan AMI’s or containers for OS vulnerabilities. 
+
+
+Open source: 
+Clair for static analysis of application containers 
+Anchore checks container apps for vulnerabilities, secrets, exposed ports, elevated previleges
+Dagda for static scanning to detect trojans, malware, and viruses in docker images and containers.
+Trivy for IaC vulnerabilities
+Privy for security practices and policies
+OpenSCAP tools automate vulnerability management, measurement and policy compliance against a set of standards.
+
+Commercial:
+Aqua security builds on open source Trivy to scan source code, repositories, images, artifact registries, IaC templates and Kubernetes environments. 
+sysdig scans IaC for security issues
+twistlock (now Prisma Cloud) provides vulnerability management by scanning images and server less functions
+PureSec scans server less functions for vulnerabilities, access permissions, and runtime threats
+
+
+
+c. Scan an AWS environment for cloud configuration vulnerabilities.
+
+As we saw in this lab...
+
+AWS Inspector finds vulnerabilities on EC2 instances. It runs either once a day or every 15 minutes, which is considered static scanning. It doesn't run on demand. AWS Inspector does the following:
+- catches deviation from the CIS Benchmarks (Center for Internet Security)
+- reports on deviation from AWS security best practices
+- reports on common vulnerabilities and exposure
+- reports on network reachability from the internet to EC2 instances and load balancers
+
+AWS Config continuously monitors and records AWS resource configurations and compares against desired configurations.
+
+AWS Security Hub provides a comprehensive view of the state of your security and checks against industry standards and best practices.
+
+
+
+

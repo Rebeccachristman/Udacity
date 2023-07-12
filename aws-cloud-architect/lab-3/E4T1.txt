@@ -1,0 +1,10 @@
+1. Identify 2-3 changes that can be made to our environment to prevent an SSH brute force attack from the internet.
+
+- Move the App Web Service EC2 instance to a private subnet so it cannot be reached from the Internet.
+- Change the inbound rules security group rules for the App Web Service to allow traffic only on port 5000.
+- Disallow ssh to the App Web Service EC2 and require maintenance be done using the AWS console.
+- As suggested in Optional Task3, an AWS WAF could be put in front of the ALB to block unwanted URL traffic.
+
+2. Neither instance should have had access to the secret recipes bucket; even in the instance that API credentials were compromised how could we have prevented access to sensitive data?
+- Block public access
+- Add a bucket policy to the secret recipe bucket to allow access only to the role that needs access.

@@ -1,0 +1,22 @@
+﻿Group hierarchy,Region,Description,Service,Upfront,Monthly,First 12 months total,Currency,Configuration summary
+My Estimate,US East (N. Virginia),Web Tier EC2 burstable,Amazon EC2,0,32.81,393.72,USD,"Operating system (Linux), Quantity (2), Pricing strategy (EC2 Instance Savings Plans 1 Year No Upfront), Storage amount (10 GB), Instance type (t4g.medium)"
+My Estimate,US East (N. Virginia),App Tier burstable,Amazon EC2,0,57.06,684.72,USD,"Operating system (Linux), Quantity (2), Pricing strategy (On-Demand Instances), Storage amount (40 GB), Instance type (t4g.large)"
+My Estimate,US East (N. Virginia),Primary burstable,Amazon Neptune,0,49.985,599.82,USD,"Number of instances (1), Neptune instance type (db.t4g.medium), Usage (Neptune instances) (50 %Utilized/Month), Number of workbench instances (0), Workbench Instances (ml.t2.2xlarge), Usage (Neptune Workbench instances) (100 %Utilized/Month), Data stored (2 GB), Backup storage (40 GB)"
+My Estimate,US East (N. Virginia),Read Replica (burstable),Amazon Neptune,0,49.985,599.82,USD,"Number of workbench instances (0), Workbench Instances (ml.t2.2xlarge), Usage (Neptune Workbench instances) (100 %Utilized/Month), Number of instances (1), Neptune instance type (db.t4g.medium), Usage (Neptune instances) (50 %Utilized/Month), Data stored (2 GB), Backup storage (40 GB)"
+My Estimate,US East (N. Virginia),Classic Load Balancers,Classic Load Balancer,0,36.66,439.92,USD,"Number of Classic Load Balancers (2), Processed bytes per CLB (10 GB per month)"
+My Estimate,US East (N. Virginia),NAT for outbound,Network Address Translation (NAT) Gateway,0,33.3,399.60,USD,Number of NAT Gateways (1)
+My Estimate,US East (N. Virginia),"Storage only, CF does data transfer",S3 Intelligent - Tiering,0,40.63,487.56,USD,S3 INT storage (4.5 TB per month)
+My Estimate,US East (N. Virginia),Users Get and Post images,Amazon CloudFront,0,224.2,2690.40,USD,"Data transfer out to internet (1 TB per month), Number of requests (HTTPS) (45 million per month), Data transfer out to origin (4.5 TB per month)"
+
+
+
+Acknowledgement
+"* AWS Pricing Calculator provides only an estimate of your AWS fees and doesn't include any taxes that might apply. Your actual fees depend on a variety of factors, including your actual usage of AWS services."
+
+Changes to reduce cost:
+Web tier EC2 use single burstable instance in place of 2 auto-scaling instances in each Availability Zone (AZ)
+App tier EC2 use single burstable instance in place of 3 auto-scaling instances per AZ
+S3 storage archive a larger percentage into Glacier
+Neptune primary instance switch to lower cost burstable  
+No change to NAT and load balancing to handle the network load
+CloudFront content delivery to users stayed the same to ensure good response times to users

@@ -1,0 +1,26 @@
+﻿Group hierarchy,Region,Description,Service,Upfront,Monthly,First 12 months total,Currency,Configuration summary
+My Estimate,US East (N. Virginia),Web Tier EC2 auto-scaling,Amazon EC2,0,90.31,1083.72,USD,"Operating system (Linux), Quantity (6), Pricing strategy (On-Demand Instances), Storage amount (10 GB), Instance type (m6g.medium)"
+My Estimate,US East (N. Virginia),App Tier auto-scaling,Amazon EC2,0,192.63,2311.56,USD,"Operating system (Linux), Quantity (6), Pricing strategy (On-Demand Instances), Storage amount (40 GB), Instance type (m6g.large)"
+My Estimate,US East (N. Virginia),Primary burstable,Amazon Neptune,0,524.12,6289.44,USD,"Number of instances (1), Neptune instance type (db.r4.2xlarge), Usage (Neptune instances) (50 %Utilized/Month), Number of workbench instances (0), Workbench Instances (ml.t2.2xlarge), Usage (Neptune Workbench instances) (100 %Utilized/Month), Data stored (2 GB), Backup storage (40 GB)"
+My Estimate,US East (N. Virginia),Read Replica (burstable),Amazon Neptune,0,143.06,1716.72,USD,"Number of workbench instances (0), Workbench Instances (ml.t2.2xlarge), Usage (Neptune Workbench instances) (100 %Utilized/Month), Number of instances (1), Neptune instance type (db.r5.large), Usage (Neptune instances) (50 %Utilized/Month), Data stored (2 GB), Backup storage (40 GB)"
+My Estimate,US East (N. Virginia),Classic Load Balancers,Classic Load Balancer,0,36.66,439.92,USD,"Number of Classic Load Balancers (2), Processed bytes per CLB (10 GB per month)"
+My Estimate,US East (N. Virginia),NAT for outbound,Network Address Translation (NAT) Gateway,0,99.9,1198.80,USD,Number of NAT Gateways (3)
+My Estimate,US East (N. Virginia),"Storage only, CF does data transfer",S3 Intelligent - Tiering,0,59.72,716.64,USD,S3 INT storage (4.5 TB per month)
+My Estimate,US East (N. Virginia),Users Get and Post images,Amazon CloudFront,0,224.2,2690.40,USD,"Data transfer out to internet (1 TB per month), Number of requests (HTTPS) (45 million per month), Data transfer out to origin (4.5 TB per month)"
+My Estimate,US East (N. Virginia),Cross-AZ storage for App Tier,Amazon Elastic File System (EFS),0,8.1,97.20,USD,"Desired Storage Capacity (100 GB per month), Infrequent Access requests (10 GB per month)"
+My Estimate,US East (N. Virginia),Cross-region DNS LB and Failover,Amazon Route 53,0,340.25,4083.00,USD,"Hosted Zones (3), Additional Records in Hosted Zones (0), Basic Checks Within AWS (6), Number of Elastic Network Interfaces (3), Number of domains stored (1)"
+
+
+
+Acknowledgement
+"* AWS Pricing Calculator provides only an estimate of your AWS fees and doesn't include any taxes that might apply. Your actual fees depend on a variety of factors, including your actual usage of AWS services."
+
+Changes to improve fault tolerance, failover and resiliancy:
+- Add new VPC with single AZ in another region (requires 1 NAT) 
+- Add a second NAT to the initial design for improved failover in us-east-1
+- Add Route53 DNS routing across AZ in new VPC and original 2 AZ in us-east-1 
+- Add 2 additional auto-scale Web Tier EC2 for addition AZ in other region
+- Add 2 addition auto-scale Web Tier EC2 for addition AZ in other region
+- All EC2 instances are on-demand auto-scaling between 2 in each AZ (all non-burstable)
+- Add more horsepower to the primary Neptune instance to do additional ML and complex queries
+- Move Neptune Read Replica to the new region for fault tolerance

@@ -1,0 +1,14 @@
+﻿Group hierarchy,Region,Description,Service,Upfront,Monthly,First 12 months total,Currency,Configuration summary
+My Estimate,US East (N. Virginia),Web Tier EC2 Auto-scale,Amazon EC2,0,60.21,722.52,USD,"Operating system (Linux), Quantity (4), Pricing strategy (On-Demand Instances), Storage amount (10 GB), Instance type (m6g.medium)"
+My Estimate,US East (N. Virginia),App Tier Auto-scaling,Amazon EC2,0,128.42000000000002,1541.04,USD,"Operating system (Linux), Quantity (4), Pricing strategy (On-Demand Instances), Storage amount (40 GB), Instance type (m6g.large)"
+My Estimate,US East (N. Virginia),Primary,Amazon Neptune,0,143.06,1716.72,USD,"Number of instances (1), Neptune instance type (db.r4.large), Usage (Neptune instances) (50 %Utilized/Month), Number of workbench instances (0), Workbench Instances (ml.t2.2xlarge), Usage (Neptune Workbench instances) (100 %Utilized/Month), Data stored (2 GB), Backup storage (40 GB)"
+My Estimate,US East (N. Virginia),Read Replica (burstable),Amazon Neptune,0,49.985,599.82,USD,"Number of workbench instances (0), Workbench Instances (ml.t2.2xlarge), Usage (Neptune Workbench instances) (100 %Utilized/Month), Number of instances (1), Neptune instance type (db.t4g.medium), Usage (Neptune instances) (50 %Utilized/Month), Data stored (2 GB), Backup storage (40 GB)"
+My Estimate,US East (N. Virginia),Classic Load Balancers,Classic Load Balancer,0,36.66,439.92,USD,"Number of Classic Load Balancers (2), Processed bytes per CLB (10 GB per month)"
+My Estimate,US East (N. Virginia),NAT for outbound,Network Address Translation (NAT) Gateway,0,33.3,399.60,USD,Number of NAT Gateways (1)
+My Estimate,US East (N. Virginia),"Storage only, CF does data transfer",S3 Intelligent - Tiering,0,59.72,716.64,USD,S3 INT storage (4.5 TB per month)
+My Estimate,US East (N. Virginia),Users Get and Post images,Amazon CloudFront,0,224.2,2690.40,USD,"Data transfer out to internet (1 TB per month), Number of requests (HTTPS) (45 million per month), Data transfer out to origin (4.5 TB per month)"
+
+
+
+Acknowledgement
+"* AWS Pricing Calculator provides only an estimate of your AWS fees and doesn't include any taxes that might apply. Your actual fees depend on a variety of factors, including your actual usage of AWS services."
